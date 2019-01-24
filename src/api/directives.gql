@@ -1,0 +1,11 @@
+
+#*****************************************************************************************
+
+
+#*****************************************************************************************
+
+directive @Authorized on FIELD | FIELD_DEFINITION
+
+directive @HasRole(role: String) on FIELD | FIELD_DEFINITION
+
+directive @HasMembershipRole(role: String) on FIELD | FIELD_DEFINITION

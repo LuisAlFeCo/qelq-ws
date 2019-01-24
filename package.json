@@ -1,0 +1,47 @@
+{
+  "name": "qelq-ws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "webpack --watch --mode development",
+    "start-dev": "nodemon --watch dist -e js,json,gql dist/index.js",
+    "start": "node dist/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juan Carlos Labrandero",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "google-zoho-node-mailer": "^1.1.3",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
+    "hashmap": "^2.3.0",
+    "jsonfile": "^5.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "merge-graphql-schemas": "^1.5.7",
+    "moment-timezone": "^0.5.23",
+    "mongoose": "^5.3.10",
+    "passport": "^0.4.0",
+    "passport-custom": "^1.0.5",
+    "randomstring": "^1.1.5",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.6.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-node": "^8.0.0",
+    "nodemon": "^1.18.6",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

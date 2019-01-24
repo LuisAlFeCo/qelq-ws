@@ -1,0 +1,55 @@
+
+#*****************************************************************************************
+# TYPES
+#*****************************************************************************************
+
+type User {
+	userName: String
+	displayName: String!
+	email: String!
+	roles: [String]!
+	status: String!
+}
+
+type Auth {
+	user: User!
+	authorization: String!
+}
+
+#*****************************************************************************************
+# QUERIES
+#*****************************************************************************************
+
+type Query {
+	user: User! @Authorized
+}
+
+#*****************************************************************************************
+# INPUTS
+#*****************************************************************************************
+
+input ISignUp {
+	firstName: String!
+	lastName: String!
+	email: String!
+	password: String!
+	confirmPassword: String!
+}
+
+input ISignIn {
+	user: String!
+	password: String!
+}
+
+#*****************************************************************************************
+# MUTATIONS
+#*****************************************************************************************
+
+type Mutation {
+	signUp(data: ISignUp!): Auth! @HasRole(role: "guest") @Authorized
+	resendConfirmationMessage: DefaultResponse! @Authorized
+	verifyEmail(hash: String!): Auth!
+	signIn(data: ISignIn!): Auth! @HasRole(role: "guest") @Authorized
+}
+
+#*****************************************************************************************

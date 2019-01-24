@@ -1,0 +1,58 @@
+
+type Student {
+	firstName: String!
+	lastName1: String!
+	lastName2: String
+	rude: String!
+	ci: String
+	sex: String!
+	birdDate: String!
+}
+
+#type StudentsList {
+#	rows: [Student]!
+#	columns: [TableColumn]!
+#}
+
+#*****************************************************************************************
+# QUERIES
+#*****************************************************************************************
+
+type Query {
+	students(schoolId: String!): [Student]!
+		@HasMembershipRole(role: "owner") @HasRole(role: "basic") @Authorized
+	student(schoolId: String!, rude: String!): Student!
+		@HasMembershipRole(role: "owner") @HasRole(role: "basic") @Authorized
+
+#	studentsByStatus(status: String!): StudentsList!
+#	searchStudents(filter: String!): [Student]!
+}
+
+#*****************************************************************************************
+# INPUTS
+#*****************************************************************************************
+
+input IStudent {
+	firstName: String!
+	lastName1: String!
+	lastName2: String
+	rude: String!
+	ci: String
+	sex: String!
+	birdDate: String!
+}
+
+#*****************************************************************************************
+# MUTATIONS
+#*****************************************************************************************
+
+type Mutation {
+	insertStudent(schoolId: String!, data: IStudent!): Student!
+		@HasMembershipRole(role: "owner") @HasRole(role: "basic") @Authorized
+	updateStudent(schoolId: String!, rude: String!, data: IStudent!): Student!
+		@HasMembershipRole(role: "owner") @HasRole(role: "basic") @Authorized
+#	deleteStudent(rude: String!): DefaultResponse
+#	retireStudent(rude: String!): DefaultResponse
+}
+
+#*****************************************************************************************
